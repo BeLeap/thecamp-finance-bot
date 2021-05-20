@@ -69,7 +69,7 @@ def resultGenerator():
 result = ""
 
 for res in resultGenerator():
-    result += res
+    result += f" / {res}"
     if (len(result) > 1000):
         content = result[0:1000]
         result = result[1000:len(result)]
