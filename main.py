@@ -67,13 +67,17 @@ def resultGenerator():
 
 
 result = ""
+index = 0
 
 for res in resultGenerator():
     result += f" / {res}"
     if (len(result) > 1000):
         content = result[0:1000]
         result = result[1000:len(result)]
+        print(f"Sending message {index}")
         sendMessage(content)
+        index += 1
 
 if not result:
+    print(f"Sending message {index}")
     sendMessage(result)
