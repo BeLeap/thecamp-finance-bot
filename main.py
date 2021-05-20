@@ -66,4 +66,7 @@ resultArray += list(map(processFinanceData,
 result = " / ".join(resultArray)
 
 chunks, chunk_size = len(result), 1000
-map(sendMessage, [result[i:i+chunk_size] for i in range(0, chunks, chunk_size)])
+resultSplitted = [result[i:i+chunk_size] for i in range(0, chunks, chunk_size)]
+for index, content in enumerate(resultSplitted):
+    print(f"Sending [{index}/{len(resultSplitted)}...")
+    sendMessage(content)
