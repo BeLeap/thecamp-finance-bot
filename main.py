@@ -57,16 +57,23 @@ def processFinanceData(code: str):
     return getFinanceData(code).toSummary()
 
 
-resultArray = []
-resultArray += list(map(processFinanceData,
-                        parseCode("KOSPI.txt")))
-resultArray += list(map(processFinanceData,
-                        parseCode("NASDAQ.txt")))
+def resultGenerator():
+    codes = []
+    codes += parseCode("KOSPI.txt")
+    codes += parseCode("NASDAQ.txt")
 
-result = " / ".join(resultArray)
+    for code in codes:
+        yield processFinanceData(code)
 
-chunks, chunk_size = len(result), 1000
-resultSplitted = [result[i:i+chunk_size] for i in range(0, chunks, chunk_size)]
-for index, content in enumerate(resultSplitted):
-    print(f"Sending [{index}/{len(resultSplitted)}...")
-    sendMessage(content)
+
+result = ""
+
+for res in resultGenerator():
+    result += res
+    if (len(result) > 1000):
+        content = result[0:1000]
+        result = result[1000:len(result)]
+        sendMessage(content)
+
+if not result:
+    sendMessage(result)
