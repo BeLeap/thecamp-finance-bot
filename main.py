@@ -78,6 +78,6 @@ for res in resultGenerator():
         sendMessage(content)
         index += 1
 
-if not result:
+if len(result) > 0:
     print(f"Sending message {index}")
     sendMessage(result)
