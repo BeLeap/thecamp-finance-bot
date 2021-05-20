@@ -1,13 +1,16 @@
 autopep8==1.5.7
 beautifulsoup4==4.9.3
 certifi==2020.12.5
+cffi==1.14.5
 chardet==4.0.0
+cryptography==3.4.7
 idna==2.10
 lxml==4.6.3
 multitasking==0.0.9
 numpy==1.20.3
 pandas==1.2.4
 pycodestyle==2.7.0
+pycparser==2.20
 python-crontab==2.5.1
 python-dateutil==2.8.1
 python-dotenv==0.17.1
