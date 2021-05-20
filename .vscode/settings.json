@@ -1,7 +1,5 @@
 {
-    "cSpell.words": [
-        "kospi",
-        "yfinance"
-    ],
-    "git.ignoreLimitWarning": true
+  "cSpell.words": ["kospi", "upbit", "yfinance"],
+  "git.ignoreLimitWarning": true,
+  "python.analysis.extraPaths": ["./src"]
 }
